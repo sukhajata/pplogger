@@ -1,4 +1,4 @@
-module github.com/sukhajata.com/pplogger
+module github.com/sukhajata/pplogger
 
 go 1.13
 
