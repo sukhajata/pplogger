@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package pplogger;
+
+message ErrorMesage {
+    string service = 1;
+    string function = 2;
+    enum Severity {
+        FATAL = 0;
+        SEVERE = 1;
+        WARNING = 2;
+    }
+    Severity severity = 3;
+    string message = 4;
+}
+
+message Response {
+    string reply = 1;
+}
+
+service LoggerService {
+    rpc LogError(ErrorMesage) returns (Response) {}
+}
