@@ -6,12 +6,11 @@ package pplogger
 import (
 	context "context"
 	fmt "fmt"
-	math "math"
-
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -25,91 +24,91 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type ErrorMesage_Severity int32
+type ErrorMessage_Severity int32
 
 const (
-	ErrorMesage_FATAL   ErrorMesage_Severity = 0
-	ErrorMesage_SEVERE  ErrorMesage_Severity = 1
-	ErrorMesage_WARNING ErrorMesage_Severity = 2
+	ErrorMessage_FATAL   ErrorMessage_Severity = 0
+	ErrorMessage_SEVERE  ErrorMessage_Severity = 1
+	ErrorMessage_WARNING ErrorMessage_Severity = 2
 )
 
-var ErrorMesage_Severity_name = map[int32]string{
+var ErrorMessage_Severity_name = map[int32]string{
 	0: "FATAL",
 	1: "SEVERE",
 	2: "WARNING",
 }
 
-var ErrorMesage_Severity_value = map[string]int32{
+var ErrorMessage_Severity_value = map[string]int32{
 	"FATAL":   0,
 	"SEVERE":  1,
 	"WARNING": 2,
 }
 
-func (x ErrorMesage_Severity) String() string {
-	return proto.EnumName(ErrorMesage_Severity_name, int32(x))
+func (x ErrorMessage_Severity) String() string {
+	return proto.EnumName(ErrorMessage_Severity_name, int32(x))
 }
 
-func (ErrorMesage_Severity) EnumDescriptor() ([]byte, []int) {
+func (ErrorMessage_Severity) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_1484f153346fa394, []int{0, 0}
 }
 
-type ErrorMesage struct {
-	Service              string               `protobuf:"bytes,1,opt,name=service,proto3" json:"service,omitempty"`
-	Function             string               `protobuf:"bytes,2,opt,name=function,proto3" json:"function,omitempty"`
-	Severity             ErrorMesage_Severity `protobuf:"varint,3,opt,name=severity,proto3,enum=pplogger.ErrorMesage_Severity" json:"severity,omitempty"`
-	Message              string               `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+type ErrorMessage struct {
+	Service              string                `protobuf:"bytes,1,opt,name=service,proto3" json:"service,omitempty"`
+	Function             string                `protobuf:"bytes,2,opt,name=function,proto3" json:"function,omitempty"`
+	Severity             ErrorMessage_Severity `protobuf:"varint,3,opt,name=severity,proto3,enum=pplogger.ErrorMessage_Severity" json:"severity,omitempty"`
+	Message              string                `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
-func (m *ErrorMesage) Reset()         { *m = ErrorMesage{} }
-func (m *ErrorMesage) String() string { return proto.CompactTextString(m) }
-func (*ErrorMesage) ProtoMessage()    {}
-func (*ErrorMesage) Descriptor() ([]byte, []int) {
+func (m *ErrorMessage) Reset()         { *m = ErrorMessage{} }
+func (m *ErrorMessage) String() string { return proto.CompactTextString(m) }
+func (*ErrorMessage) ProtoMessage()    {}
+func (*ErrorMessage) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1484f153346fa394, []int{0}
 }
 
-func (m *ErrorMesage) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ErrorMesage.Unmarshal(m, b)
+func (m *ErrorMessage) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ErrorMessage.Unmarshal(m, b)
 }
-func (m *ErrorMesage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ErrorMesage.Marshal(b, m, deterministic)
+func (m *ErrorMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ErrorMessage.Marshal(b, m, deterministic)
 }
-func (m *ErrorMesage) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ErrorMesage.Merge(m, src)
+func (m *ErrorMessage) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ErrorMessage.Merge(m, src)
 }
-func (m *ErrorMesage) XXX_Size() int {
-	return xxx_messageInfo_ErrorMesage.Size(m)
+func (m *ErrorMessage) XXX_Size() int {
+	return xxx_messageInfo_ErrorMessage.Size(m)
 }
-func (m *ErrorMesage) XXX_DiscardUnknown() {
-	xxx_messageInfo_ErrorMesage.DiscardUnknown(m)
+func (m *ErrorMessage) XXX_DiscardUnknown() {
+	xxx_messageInfo_ErrorMessage.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ErrorMesage proto.InternalMessageInfo
+var xxx_messageInfo_ErrorMessage proto.InternalMessageInfo
 
-func (m *ErrorMesage) GetService() string {
+func (m *ErrorMessage) GetService() string {
 	if m != nil {
 		return m.Service
 	}
 	return ""
 }
 
-func (m *ErrorMesage) GetFunction() string {
+func (m *ErrorMessage) GetFunction() string {
 	if m != nil {
 		return m.Function
 	}
 	return ""
 }
 
-func (m *ErrorMesage) GetSeverity() ErrorMesage_Severity {
+func (m *ErrorMessage) GetSeverity() ErrorMessage_Severity {
 	if m != nil {
 		return m.Severity
 	}
-	return ErrorMesage_FATAL
+	return ErrorMessage_FATAL
 }
 
-func (m *ErrorMesage) GetMessage() string {
+func (m *ErrorMessage) GetMessage() string {
 	if m != nil {
 		return m.Message
 	}
@@ -156,8 +155,8 @@ func (m *Response) GetReply() string {
 }
 
 func init() {
-	proto.RegisterEnum("pplogger.ErrorMesage_Severity", ErrorMesage_Severity_name, ErrorMesage_Severity_value)
-	proto.RegisterType((*ErrorMesage)(nil), "pplogger.ErrorMesage")
+	proto.RegisterEnum("pplogger.ErrorMessage_Severity", ErrorMessage_Severity_name, ErrorMessage_Severity_value)
+	proto.RegisterType((*ErrorMessage)(nil), "pplogger.ErrorMessage")
 	proto.RegisterType((*Response)(nil), "pplogger.Response")
 }
 
@@ -165,22 +164,22 @@ func init() { proto.RegisterFile("logger-service.proto", fileDescriptor_1484f153
 
 var fileDescriptor_1484f153346fa394 = []byte{
 	// 249 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0x4f, 0x4b, 0xc3, 0x40,
-	0x10, 0xc5, 0xbb, 0xd5, 0xb6, 0xdb, 0x29, 0x4a, 0x18, 0x2a, 0x2c, 0x3d, 0x48, 0xc8, 0xa9, 0x17,
-	0xf7, 0x50, 0x0f, 0x82, 0xb7, 0x1c, 0xe2, 0x1f, 0x88, 0x3d, 0x6c, 0x44, 0xcf, 0x5a, 0xc6, 0x10,
-	0xa8, 0xd9, 0x65, 0x36, 0x16, 0xfa, 0x11, 0xfd, 0x56, 0xd2, 0x64, 0x53, 0x3d, 0x78, 0x7c, 0x33,
-	0x3f, 0xe6, 0xbd, 0x37, 0x30, 0xdf, 0xda, 0xb2, 0x24, 0xbe, 0xf2, 0xc4, 0xbb, 0x6a, 0x43, 0xda,
-	0xb1, 0x6d, 0x2c, 0x4a, 0xe7, 0xba, 0x79, 0xf2, 0x2d, 0x60, 0x96, 0x31, 0x5b, 0x7e, 0x22, 0xff,
-	0x56, 0x12, 0x2a, 0x98, 0x04, 0x54, 0x89, 0x58, 0x2c, 0xa7, 0xa6, 0x97, 0xb8, 0x00, 0xf9, 0xf1,
-	0x55, 0x6f, 0x9a, 0xca, 0xd6, 0x6a, 0xd8, 0xae, 0x8e, 0x1a, 0x6f, 0x41, 0x7a, 0xda, 0x11, 0x57,
-	0xcd, 0x5e, 0x9d, 0xc4, 0x62, 0x79, 0xbe, 0xba, 0xd4, 0xbd, 0x85, 0xfe, 0x73, 0x5e, 0x17, 0x81,
-	0x32, 0x47, 0xfe, 0xe0, 0xf8, 0x49, 0xfe, 0xb0, 0x55, 0xa7, 0x9d, 0x63, 0x90, 0x89, 0x06, 0xd9,
-	0xf3, 0x38, 0x85, 0xd1, 0x5d, 0xfa, 0x9c, 0xe6, 0xd1, 0x00, 0x01, 0xc6, 0x45, 0xf6, 0x92, 0x99,
-	0x2c, 0x12, 0x38, 0x83, 0xc9, 0x6b, 0x6a, 0xd6, 0x8f, 0xeb, 0xfb, 0x68, 0x98, 0xc4, 0x20, 0x0d,
-	0x79, 0x67, 0x6b, 0x4f, 0x38, 0x87, 0x11, 0x93, 0xdb, 0xee, 0x43, 0x8b, 0x4e, 0xac, 0x1e, 0xe0,
-	0x2c, 0x6f, 0x43, 0x15, 0xa1, 0xd4, 0x0d, 0xc8, 0xdc, 0x96, 0x6d, 0x42, 0xbc, 0xf8, 0x37, 0xf2,
-	0x02, 0x7f, 0xc7, 0xfd, 0xf5, 0x64, 0xf0, 0x3e, 0x6e, 0x1f, 0x79, 0xfd, 0x13, 0x00, 0x00, 0xff,
-	0xff, 0x9d, 0x99, 0xc9, 0xc4, 0x60, 0x01, 0x00, 0x00,
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0x3f, 0x4f, 0xc3, 0x30,
+	0x10, 0xc5, 0xeb, 0x42, 0x5b, 0xf7, 0xf8, 0xa3, 0xe8, 0x54, 0x21, 0xab, 0x0b, 0x51, 0xa6, 0x2e,
+	0x78, 0x28, 0x0b, 0x12, 0x53, 0x86, 0x80, 0x2a, 0x85, 0x0e, 0x0e, 0x82, 0x19, 0xaa, 0x23, 0x8a,
+	0x54, 0x62, 0xeb, 0x1c, 0x2a, 0xf5, 0x33, 0xf2, 0xa5, 0x10, 0x89, 0x53, 0x18, 0x3a, 0xfe, 0xee,
+	0x9e, 0xef, 0xbd, 0x67, 0x98, 0x6d, 0x6d, 0x59, 0x12, 0xdf, 0x78, 0xe2, 0x5d, 0xb5, 0x21, 0xed,
+	0xd8, 0x36, 0x16, 0xa5, 0x73, 0xdd, 0x3c, 0xf9, 0x16, 0x70, 0x9e, 0x31, 0x5b, 0x7e, 0x22, 0xef,
+	0xdf, 0x4a, 0x42, 0x05, 0x93, 0xa0, 0x55, 0x22, 0x16, 0x8b, 0xa9, 0xe9, 0x11, 0xe7, 0x20, 0x3f,
+	0xbe, 0xea, 0x4d, 0x53, 0xd9, 0x5a, 0x0d, 0xdb, 0xd5, 0x81, 0xf1, 0x1e, 0xa4, 0xa7, 0x1d, 0x71,
+	0xd5, 0xec, 0xd5, 0x49, 0x2c, 0x16, 0x97, 0xcb, 0x6b, 0xdd, 0x7b, 0xe8, 0xff, 0xf7, 0x75, 0x11,
+	0x64, 0xe6, 0xf0, 0xe0, 0xd7, 0xf2, 0xb3, 0xdb, 0xaa, 0xd3, 0xce, 0x32, 0x60, 0xa2, 0x41, 0xf6,
+	0x7a, 0x9c, 0xc2, 0xe8, 0x21, 0x7d, 0x4e, 0xf3, 0x68, 0x80, 0x00, 0xe3, 0x22, 0x7b, 0xc9, 0x4c,
+	0x16, 0x09, 0x3c, 0x83, 0xc9, 0x6b, 0x6a, 0xd6, 0xab, 0xf5, 0x63, 0x34, 0x4c, 0x62, 0x90, 0x86,
+	0xbc, 0xb3, 0xb5, 0x27, 0x9c, 0xc1, 0x88, 0xc9, 0x6d, 0xf7, 0xa1, 0x46, 0x07, 0xcb, 0x15, 0x5c,
+	0xe4, 0x6d, 0xaa, 0x22, 0xb4, 0xba, 0x03, 0x99, 0xdb, 0xb2, 0x8d, 0x88, 0x57, 0xc7, 0x33, 0xcf,
+	0xf1, 0x6f, 0xde, 0x9f, 0x4f, 0x06, 0xef, 0xe3, 0xf6, 0x2f, 0x6f, 0x7f, 0x02, 0x00, 0x00, 0xff,
+	0xff, 0xec, 0x4a, 0x4a, 0x0e, 0x63, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -195,7 +194,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type LoggerServiceClient interface {
-	LogError(ctx context.Context, in *ErrorMesage, opts ...grpc.CallOption) (*Response, error)
+	LogError(ctx context.Context, in *ErrorMessage, opts ...grpc.CallOption) (*Response, error)
 }
 
 type loggerServiceClient struct {
@@ -206,7 +205,7 @@ func NewLoggerServiceClient(cc *grpc.ClientConn) LoggerServiceClient {
 	return &loggerServiceClient{cc}
 }
 
-func (c *loggerServiceClient) LogError(ctx context.Context, in *ErrorMesage, opts ...grpc.CallOption) (*Response, error) {
+func (c *loggerServiceClient) LogError(ctx context.Context, in *ErrorMessage, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
 	err := c.cc.Invoke(ctx, "/pplogger.LoggerService/LogError", in, out, opts...)
 	if err != nil {
@@ -217,14 +216,14 @@ func (c *loggerServiceClient) LogError(ctx context.Context, in *ErrorMesage, opt
 
 // LoggerServiceServer is the server API for LoggerService service.
 type LoggerServiceServer interface {
-	LogError(context.Context, *ErrorMesage) (*Response, error)
+	LogError(context.Context, *ErrorMessage) (*Response, error)
 }
 
 // UnimplementedLoggerServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedLoggerServiceServer struct {
 }
 
-func (*UnimplementedLoggerServiceServer) LogError(ctx context.Context, req *ErrorMesage) (*Response, error) {
+func (*UnimplementedLoggerServiceServer) LogError(ctx context.Context, req *ErrorMessage) (*Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LogError not implemented")
 }
 
@@ -233,7 +232,7 @@ func RegisterLoggerServiceServer(s *grpc.Server, srv LoggerServiceServer) {
 }
 
 func _LoggerService_LogError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ErrorMesage)
+	in := new(ErrorMessage)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -245,7 +244,7 @@ func _LoggerService_LogError_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: "/pplogger.LoggerService/LogError",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LoggerServiceServer).LogError(ctx, req.(*ErrorMesage))
+		return srv.(LoggerServiceServer).LogError(ctx, req.(*ErrorMessage))
 	}
 	return interceptor(ctx, in, info, handler)
 }

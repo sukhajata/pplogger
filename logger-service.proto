@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pplogger;
 
-message ErrorMesage {
+message ErrorMessage {
     string service = 1;
     string function = 2;
     enum Severity {
@@ -19,5 +19,5 @@ message Response {
 }
 
 service LoggerService {
-    rpc LogError(ErrorMesage) returns (Response) {}
+    rpc LogError(ErrorMessage) returns (Response) {}
 }
