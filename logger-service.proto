@@ -6,9 +6,10 @@ message ErrorMessage {
     string service = 1;
     string function = 2;
     enum Severity {
-        FATAL = 0;
-        SEVERE = 1;
-        WARNING = 2;
+        NOTHING = 0;
+        FATAL = 1;
+        SEVERE = 2;
+        WARNING = 3;
     }
     Severity severity = 3;
     string message = 4;

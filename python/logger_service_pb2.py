@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pplogger',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x14logger-service.proto\x12\x08pplogger\"\xa5\x01\n\x0c\x45rrorMessage\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\x12\x31\n\x08severity\x18\x03 \x01(\x0e\x32\x1f.pplogger.ErrorMessage.Severity\x12\x0f\n\x07message\x18\x04 \x01(\t\".\n\x08Severity\x12\t\n\x05\x46\x41TAL\x10\x00\x12\n\n\x06SEVERE\x10\x01\x12\x0b\n\x07WARNING\x10\x02\"\x19\n\x08Response\x12\r\n\x05reply\x18\x01 \x01(\t2I\n\rLoggerService\x12\x38\n\x08LogError\x12\x16.pplogger.ErrorMessage\x1a\x12.pplogger.Response\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x14logger-service.proto\x12\x08pplogger\"\xb2\x01\n\x0c\x45rrorMessage\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\x12\x31\n\x08severity\x18\x03 \x01(\x0e\x32\x1f.pplogger.ErrorMessage.Severity\x12\x0f\n\x07message\x18\x04 \x01(\t\";\n\x08Severity\x12\x0b\n\x07NOTHING\x10\x00\x12\t\n\x05\x46\x41TAL\x10\x01\x12\n\n\x06SEVERE\x10\x02\x12\x0b\n\x07WARNING\x10\x03\"\x19\n\x08Response\x12\r\n\x05reply\x18\x01 \x01(\t2I\n\rLoggerService\x12\x38\n\x08LogError\x12\x16.pplogger.ErrorMessage\x1a\x12.pplogger.Response\"\x00\x62\x06proto3')
 )
 
 
@@ -32,22 +32,26 @@ _ERRORMESSAGE_SEVERITY = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='FATAL', index=0, number=0,
+      name='NOTHING', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SEVERE', index=1, number=1,
+      name='FATAL', index=1, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='WARNING', index=2, number=2,
+      name='SEVERE', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WARNING', index=3, number=3,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=154,
-  serialized_end=200,
+  serialized_end=213,
 )
 _sym_db.RegisterEnumDescriptor(_ERRORMESSAGE_SEVERITY)
 
@@ -101,7 +105,7 @@ _ERRORMESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=35,
-  serialized_end=200,
+  serialized_end=213,
 )
 
 
@@ -131,8 +135,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=202,
-  serialized_end=227,
+  serialized_start=215,
+  serialized_end=240,
 )
 
 _ERRORMESSAGE.fields_by_name['severity'].enum_type = _ERRORMESSAGE_SEVERITY
@@ -163,8 +167,8 @@ _LOGGERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=229,
-  serialized_end=302,
+  serialized_start=242,
+  serialized_end=315,
   methods=[
   _descriptor.MethodDescriptor(
     name='LogError',
