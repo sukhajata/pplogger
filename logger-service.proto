@@ -20,7 +20,7 @@ message Response {
 }
 
 message StreamErrorsRequest {
-    int startFrom = 1;
+    int32 startFrom = 1;
 }
 
 service LoggerService {
