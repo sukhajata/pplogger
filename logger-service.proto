@@ -19,12 +19,9 @@ message Response {
     string reply = 1;
 }
 
-message StreamErrorsRequest {
-    int32 startFrom = 1;
-}
 
 service LoggerService {
     rpc LogError(ErrorMessage) returns (Response) {}
 
-    rpc StreamErrors(StreamErrorsRequest) returns (stream ErrorMessage) {}
+    //rpc StreamErrors(StreamErrorsRequest) returns (stream ErrorMessage) {}
 }
