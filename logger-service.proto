@@ -15,6 +15,17 @@ message ErrorMessage {
     string message = 4;
 }
 
+message StreamDeviceLogRequest {
+    string deviceEUI = 1;
+    string startTime = 2;
+}
+
+message DeviceLogMessage {
+    string user = 1;
+    string deviceEUI = 2;
+    string message = 3;
+}
+
 message Response {
     string reply = 1;
 }
@@ -23,5 +34,9 @@ message Response {
 service LoggerService {
     rpc LogError(ErrorMessage) returns (Response) {}
 
-    //rpc StreamErrors(StreamErrorsRequest) returns (stream ErrorMessage) {}
+    rpc LogDeviceEvent(DeviceLogMessage) returns (Response) {}
+
+    rpc StreamErrors() returns (stream ErrorMessage) {}
+
+    rpc StreamDeviceLog(StreamDeviceLogRequest) returns (stream DeviceLogMessage) {}
 }
