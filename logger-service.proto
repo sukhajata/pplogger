@@ -15,6 +15,10 @@ message ErrorMessage {
     string message = 4;
 }
 
+message StreamErrorsRequest {
+    string function = 1;
+}
+
 message StreamDeviceLogRequest {
     string deviceEUI = 1;
     string startTime = 2;
@@ -36,7 +40,7 @@ service LoggerService {
 
     rpc LogDeviceEvent(DeviceLogMessage) returns (Response) {}
 
-    rpc StreamErrors() returns (stream ErrorMessage) {}
+    rpc StreamErrors(StreamErrorsRequest) returns (stream ErrorMessage) {}
 
     rpc StreamDeviceLog(StreamDeviceLogRequest) returns (stream DeviceLogMessage) {}
 }

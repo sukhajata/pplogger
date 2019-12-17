@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pplogger',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x14logger-service.proto\x12\x08pplogger\"\xb2\x01\n\x0c\x45rrorMessage\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\x12\x31\n\x08severity\x18\x03 \x01(\x0e\x32\x1f.pplogger.ErrorMessage.Severity\x12\x0f\n\x07message\x18\x04 \x01(\t\";\n\x08Severity\x12\x0b\n\x07NOTHING\x10\x00\x12\t\n\x05\x46\x41TAL\x10\x01\x12\n\n\x06SEVERE\x10\x02\x12\x0b\n\x07WARNING\x10\x03\"\x19\n\x08Response\x12\r\n\x05reply\x18\x01 \x01(\t2I\n\rLoggerService\x12\x38\n\x08LogError\x12\x16.pplogger.ErrorMessage\x1a\x12.pplogger.Response\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x14logger-service.proto\x12\x08pplogger\"\xb2\x01\n\x0c\x45rrorMessage\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\x12\x31\n\x08severity\x18\x03 \x01(\x0e\x32\x1f.pplogger.ErrorMessage.Severity\x12\x0f\n\x07message\x18\x04 \x01(\t\";\n\x08Severity\x12\x0b\n\x07NOTHING\x10\x00\x12\t\n\x05\x46\x41TAL\x10\x01\x12\n\n\x06SEVERE\x10\x02\x12\x0b\n\x07WARNING\x10\x03\"\'\n\x13StreamErrorsRequest\x12\x10\n\x08\x66unction\x18\x01 \x01(\t\">\n\x16StreamDeviceLogRequest\x12\x11\n\tdeviceEUI\x18\x01 \x01(\t\x12\x11\n\tstartTime\x18\x02 \x01(\t\"D\n\x10\x44\x65viceLogMessage\x12\x0c\n\x04user\x18\x01 \x01(\t\x12\x11\n\tdeviceEUI\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"\x19\n\x08Response\x12\r\n\x05reply\x18\x01 \x01(\t2\xad\x02\n\rLoggerService\x12\x38\n\x08LogError\x12\x16.pplogger.ErrorMessage\x1a\x12.pplogger.Response\"\x00\x12\x42\n\x0eLogDeviceEvent\x12\x1a.pplogger.DeviceLogMessage\x1a\x12.pplogger.Response\"\x00\x12I\n\x0cStreamErrors\x12\x1d.pplogger.StreamErrorsRequest\x1a\x16.pplogger.ErrorMessage\"\x00\x30\x01\x12S\n\x0fStreamDeviceLog\x12 .pplogger.StreamDeviceLogRequest\x1a\x1a.pplogger.DeviceLogMessage\"\x00\x30\x01\x62\x06proto3')
 )
 
 
@@ -109,6 +109,120 @@ _ERRORMESSAGE = _descriptor.Descriptor(
 )
 
 
+_STREAMERRORSREQUEST = _descriptor.Descriptor(
+  name='StreamErrorsRequest',
+  full_name='pplogger.StreamErrorsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='function', full_name='pplogger.StreamErrorsRequest.function', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=215,
+  serialized_end=254,
+)
+
+
+_STREAMDEVICELOGREQUEST = _descriptor.Descriptor(
+  name='StreamDeviceLogRequest',
+  full_name='pplogger.StreamDeviceLogRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='deviceEUI', full_name='pplogger.StreamDeviceLogRequest.deviceEUI', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='startTime', full_name='pplogger.StreamDeviceLogRequest.startTime', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=256,
+  serialized_end=318,
+)
+
+
+_DEVICELOGMESSAGE = _descriptor.Descriptor(
+  name='DeviceLogMessage',
+  full_name='pplogger.DeviceLogMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user', full_name='pplogger.DeviceLogMessage.user', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='deviceEUI', full_name='pplogger.DeviceLogMessage.deviceEUI', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='pplogger.DeviceLogMessage.message', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=320,
+  serialized_end=388,
+)
+
+
 _RESPONSE = _descriptor.Descriptor(
   name='Response',
   full_name='pplogger.Response',
@@ -135,13 +249,16 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=215,
-  serialized_end=240,
+  serialized_start=390,
+  serialized_end=415,
 )
 
 _ERRORMESSAGE.fields_by_name['severity'].enum_type = _ERRORMESSAGE_SEVERITY
 _ERRORMESSAGE_SEVERITY.containing_type = _ERRORMESSAGE
 DESCRIPTOR.message_types_by_name['ErrorMessage'] = _ERRORMESSAGE
+DESCRIPTOR.message_types_by_name['StreamErrorsRequest'] = _STREAMERRORSREQUEST
+DESCRIPTOR.message_types_by_name['StreamDeviceLogRequest'] = _STREAMDEVICELOGREQUEST
+DESCRIPTOR.message_types_by_name['DeviceLogMessage'] = _DEVICELOGMESSAGE
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -151,6 +268,27 @@ ErrorMessage = _reflection.GeneratedProtocolMessageType('ErrorMessage', (_messag
   # @@protoc_insertion_point(class_scope:pplogger.ErrorMessage)
   })
 _sym_db.RegisterMessage(ErrorMessage)
+
+StreamErrorsRequest = _reflection.GeneratedProtocolMessageType('StreamErrorsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STREAMERRORSREQUEST,
+  '__module__' : 'logger_service_pb2'
+  # @@protoc_insertion_point(class_scope:pplogger.StreamErrorsRequest)
+  })
+_sym_db.RegisterMessage(StreamErrorsRequest)
+
+StreamDeviceLogRequest = _reflection.GeneratedProtocolMessageType('StreamDeviceLogRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STREAMDEVICELOGREQUEST,
+  '__module__' : 'logger_service_pb2'
+  # @@protoc_insertion_point(class_scope:pplogger.StreamDeviceLogRequest)
+  })
+_sym_db.RegisterMessage(StreamDeviceLogRequest)
+
+DeviceLogMessage = _reflection.GeneratedProtocolMessageType('DeviceLogMessage', (_message.Message,), {
+  'DESCRIPTOR' : _DEVICELOGMESSAGE,
+  '__module__' : 'logger_service_pb2'
+  # @@protoc_insertion_point(class_scope:pplogger.DeviceLogMessage)
+  })
+_sym_db.RegisterMessage(DeviceLogMessage)
 
 Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
   'DESCRIPTOR' : _RESPONSE,
@@ -167,8 +305,8 @@ _LOGGERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=242,
-  serialized_end=315,
+  serialized_start=418,
+  serialized_end=719,
   methods=[
   _descriptor.MethodDescriptor(
     name='LogError',
@@ -177,6 +315,33 @@ _LOGGERSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ERRORMESSAGE,
     output_type=_RESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='LogDeviceEvent',
+    full_name='pplogger.LoggerService.LogDeviceEvent',
+    index=1,
+    containing_service=None,
+    input_type=_DEVICELOGMESSAGE,
+    output_type=_RESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='StreamErrors',
+    full_name='pplogger.LoggerService.StreamErrors',
+    index=2,
+    containing_service=None,
+    input_type=_STREAMERRORSREQUEST,
+    output_type=_ERRORMESSAGE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='StreamDeviceLog',
+    full_name='pplogger.LoggerService.StreamDeviceLog',
+    index=3,
+    containing_service=None,
+    input_type=_STREAMDEVICELOGREQUEST,
+    output_type=_DEVICELOGMESSAGE,
     serialized_options=None,
   ),
 ])

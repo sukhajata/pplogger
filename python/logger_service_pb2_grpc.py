@@ -19,6 +19,21 @@ class LoggerServiceStub(object):
         request_serializer=logger__service__pb2.ErrorMessage.SerializeToString,
         response_deserializer=logger__service__pb2.Response.FromString,
         )
+    self.LogDeviceEvent = channel.unary_unary(
+        '/pplogger.LoggerService/LogDeviceEvent',
+        request_serializer=logger__service__pb2.DeviceLogMessage.SerializeToString,
+        response_deserializer=logger__service__pb2.Response.FromString,
+        )
+    self.StreamErrors = channel.unary_stream(
+        '/pplogger.LoggerService/StreamErrors',
+        request_serializer=logger__service__pb2.StreamErrorsRequest.SerializeToString,
+        response_deserializer=logger__service__pb2.ErrorMessage.FromString,
+        )
+    self.StreamDeviceLog = channel.unary_stream(
+        '/pplogger.LoggerService/StreamDeviceLog',
+        request_serializer=logger__service__pb2.StreamDeviceLogRequest.SerializeToString,
+        response_deserializer=logger__service__pb2.DeviceLogMessage.FromString,
+        )
 
 
 class LoggerServiceServicer(object):
@@ -32,6 +47,27 @@ class LoggerServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def LogDeviceEvent(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def StreamErrors(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def StreamDeviceLog(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_LoggerServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -39,6 +75,21 @@ def add_LoggerServiceServicer_to_server(servicer, server):
           servicer.LogError,
           request_deserializer=logger__service__pb2.ErrorMessage.FromString,
           response_serializer=logger__service__pb2.Response.SerializeToString,
+      ),
+      'LogDeviceEvent': grpc.unary_unary_rpc_method_handler(
+          servicer.LogDeviceEvent,
+          request_deserializer=logger__service__pb2.DeviceLogMessage.FromString,
+          response_serializer=logger__service__pb2.Response.SerializeToString,
+      ),
+      'StreamErrors': grpc.unary_stream_rpc_method_handler(
+          servicer.StreamErrors,
+          request_deserializer=logger__service__pb2.StreamErrorsRequest.FromString,
+          response_serializer=logger__service__pb2.ErrorMessage.SerializeToString,
+      ),
+      'StreamDeviceLog': grpc.unary_stream_rpc_method_handler(
+          servicer.StreamDeviceLog,
+          request_deserializer=logger__service__pb2.StreamDeviceLogRequest.FromString,
+          response_serializer=logger__service__pb2.DeviceLogMessage.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

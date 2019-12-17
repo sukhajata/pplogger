@@ -118,6 +118,147 @@ func (m *ErrorMessage) GetMessage() string {
 	return ""
 }
 
+type StreamErrorsRequest struct {
+	Function             string   `protobuf:"bytes,1,opt,name=function,proto3" json:"function,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StreamErrorsRequest) Reset()         { *m = StreamErrorsRequest{} }
+func (m *StreamErrorsRequest) String() string { return proto.CompactTextString(m) }
+func (*StreamErrorsRequest) ProtoMessage()    {}
+func (*StreamErrorsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1484f153346fa394, []int{1}
+}
+
+func (m *StreamErrorsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StreamErrorsRequest.Unmarshal(m, b)
+}
+func (m *StreamErrorsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StreamErrorsRequest.Marshal(b, m, deterministic)
+}
+func (m *StreamErrorsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamErrorsRequest.Merge(m, src)
+}
+func (m *StreamErrorsRequest) XXX_Size() int {
+	return xxx_messageInfo_StreamErrorsRequest.Size(m)
+}
+func (m *StreamErrorsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StreamErrorsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StreamErrorsRequest proto.InternalMessageInfo
+
+func (m *StreamErrorsRequest) GetFunction() string {
+	if m != nil {
+		return m.Function
+	}
+	return ""
+}
+
+type StreamDeviceLogRequest struct {
+	DeviceEUI            string   `protobuf:"bytes,1,opt,name=deviceEUI,proto3" json:"deviceEUI,omitempty"`
+	StartTime            string   `protobuf:"bytes,2,opt,name=startTime,proto3" json:"startTime,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StreamDeviceLogRequest) Reset()         { *m = StreamDeviceLogRequest{} }
+func (m *StreamDeviceLogRequest) String() string { return proto.CompactTextString(m) }
+func (*StreamDeviceLogRequest) ProtoMessage()    {}
+func (*StreamDeviceLogRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1484f153346fa394, []int{2}
+}
+
+func (m *StreamDeviceLogRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StreamDeviceLogRequest.Unmarshal(m, b)
+}
+func (m *StreamDeviceLogRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StreamDeviceLogRequest.Marshal(b, m, deterministic)
+}
+func (m *StreamDeviceLogRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamDeviceLogRequest.Merge(m, src)
+}
+func (m *StreamDeviceLogRequest) XXX_Size() int {
+	return xxx_messageInfo_StreamDeviceLogRequest.Size(m)
+}
+func (m *StreamDeviceLogRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StreamDeviceLogRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StreamDeviceLogRequest proto.InternalMessageInfo
+
+func (m *StreamDeviceLogRequest) GetDeviceEUI() string {
+	if m != nil {
+		return m.DeviceEUI
+	}
+	return ""
+}
+
+func (m *StreamDeviceLogRequest) GetStartTime() string {
+	if m != nil {
+		return m.StartTime
+	}
+	return ""
+}
+
+type DeviceLogMessage struct {
+	User                 string   `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	DeviceEUI            string   `protobuf:"bytes,2,opt,name=deviceEUI,proto3" json:"deviceEUI,omitempty"`
+	Message              string   `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeviceLogMessage) Reset()         { *m = DeviceLogMessage{} }
+func (m *DeviceLogMessage) String() string { return proto.CompactTextString(m) }
+func (*DeviceLogMessage) ProtoMessage()    {}
+func (*DeviceLogMessage) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1484f153346fa394, []int{3}
+}
+
+func (m *DeviceLogMessage) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeviceLogMessage.Unmarshal(m, b)
+}
+func (m *DeviceLogMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeviceLogMessage.Marshal(b, m, deterministic)
+}
+func (m *DeviceLogMessage) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeviceLogMessage.Merge(m, src)
+}
+func (m *DeviceLogMessage) XXX_Size() int {
+	return xxx_messageInfo_DeviceLogMessage.Size(m)
+}
+func (m *DeviceLogMessage) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeviceLogMessage.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeviceLogMessage proto.InternalMessageInfo
+
+func (m *DeviceLogMessage) GetUser() string {
+	if m != nil {
+		return m.User
+	}
+	return ""
+}
+
+func (m *DeviceLogMessage) GetDeviceEUI() string {
+	if m != nil {
+		return m.DeviceEUI
+	}
+	return ""
+}
+
+func (m *DeviceLogMessage) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 type Response struct {
 	Reply                string   `protobuf:"bytes,1,opt,name=reply,proto3" json:"reply,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -129,7 +270,7 @@ func (m *Response) Reset()         { *m = Response{} }
 func (m *Response) String() string { return proto.CompactTextString(m) }
 func (*Response) ProtoMessage()    {}
 func (*Response) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1484f153346fa394, []int{1}
+	return fileDescriptor_1484f153346fa394, []int{4}
 }
 
 func (m *Response) XXX_Unmarshal(b []byte) error {
@@ -160,30 +301,41 @@ func (m *Response) GetReply() string {
 func init() {
 	proto.RegisterEnum("pplogger.ErrorMessage_Severity", ErrorMessage_Severity_name, ErrorMessage_Severity_value)
 	proto.RegisterType((*ErrorMessage)(nil), "pplogger.ErrorMessage")
+	proto.RegisterType((*StreamErrorsRequest)(nil), "pplogger.StreamErrorsRequest")
+	proto.RegisterType((*StreamDeviceLogRequest)(nil), "pplogger.StreamDeviceLogRequest")
+	proto.RegisterType((*DeviceLogMessage)(nil), "pplogger.DeviceLogMessage")
 	proto.RegisterType((*Response)(nil), "pplogger.Response")
 }
 
 func init() { proto.RegisterFile("logger-service.proto", fileDescriptor_1484f153346fa394) }
 
 var fileDescriptor_1484f153346fa394 = []byte{
-	// 258 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0x4f, 0x4b, 0xc3, 0x40,
-	0x10, 0xc5, 0xbb, 0xad, 0x6d, 0xb7, 0xe3, 0x1f, 0xc2, 0x50, 0x64, 0xe9, 0xc5, 0x90, 0x53, 0x2f,
-	0xe6, 0x50, 0x2f, 0x42, 0x4f, 0x39, 0x44, 0x2d, 0xc4, 0x08, 0x9b, 0xa2, 0x67, 0x2d, 0x63, 0x08,
-	0xd4, 0xec, 0xb2, 0x1b, 0x0b, 0xfd, 0xa6, 0x7e, 0x1c, 0x49, 0xb2, 0x89, 0x1e, 0x7a, 0x7c, 0x33,
-	0xbf, 0x9d, 0xf7, 0xde, 0xc2, 0x7c, 0xaf, 0xf2, 0x9c, 0xcc, 0xad, 0x25, 0x73, 0x28, 0x76, 0x14,
-	0x6a, 0xa3, 0x2a, 0x85, 0x5c, 0xeb, 0x76, 0x1e, 0xfc, 0x30, 0xb8, 0x88, 0x8d, 0x51, 0xe6, 0x99,
-	0xac, 0x7d, 0xcf, 0x09, 0x05, 0x4c, 0x1d, 0x2b, 0x98, 0xcf, 0x96, 0x33, 0xd9, 0x49, 0x5c, 0x00,
-	0xff, 0xfc, 0x2e, 0x77, 0x55, 0xa1, 0x4a, 0x31, 0x6c, 0x56, 0xbd, 0xc6, 0x35, 0x70, 0x4b, 0x07,
-	0x32, 0x45, 0x75, 0x14, 0x23, 0x9f, 0x2d, 0xaf, 0x56, 0x37, 0x61, 0xe7, 0x11, 0xfe, 0xbf, 0x1f,
-	0x66, 0x0e, 0x93, 0xfd, 0x83, 0xda, 0xf2, 0xab, 0xdd, 0x8a, 0xb3, 0xd6, 0xd2, 0xc9, 0x60, 0x0d,
-	0xbc, 0xe3, 0xf1, 0x1c, 0xa6, 0xe9, 0xcb, 0xf6, 0x69, 0x93, 0x3e, 0x7a, 0x03, 0x9c, 0xc1, 0xf8,
-	0x21, 0xda, 0x46, 0x89, 0xc7, 0x10, 0x60, 0x92, 0xc5, 0xaf, 0xb1, 0x8c, 0xbd, 0x61, 0xcd, 0xbc,
-	0x45, 0x32, 0xad, 0x99, 0x51, 0xe0, 0x03, 0x97, 0x64, 0xb5, 0x2a, 0x2d, 0xe1, 0x1c, 0xc6, 0x86,
-	0xf4, 0xfe, 0xe8, 0x3a, 0xb5, 0x62, 0xb5, 0x81, 0xcb, 0xa4, 0x89, 0x98, 0xb9, 0x8a, 0xf7, 0xc0,
-	0x13, 0x95, 0x37, 0x79, 0xf1, 0xfa, 0x74, 0x81, 0x05, 0xfe, 0xcd, 0xbb, 0xf3, 0xc1, 0xe0, 0x63,
-	0xd2, 0x7c, 0xec, 0xdd, 0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xfc, 0x98, 0x6b, 0x09, 0x70, 0x01,
-	0x00, 0x00,
+	// 399 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x53, 0x4f, 0xef, 0x93, 0x40,
+	0x10, 0x2d, 0xf4, 0xf7, 0x87, 0x8e, 0xb5, 0x92, 0xb1, 0x69, 0x08, 0xd1, 0x48, 0x38, 0xf5, 0x22,
+	0xd1, 0x7a, 0x31, 0xe9, 0xa9, 0x46, 0xd4, 0x26, 0x58, 0x13, 0x40, 0xbd, 0x99, 0xd4, 0x3a, 0x12,
+	0x92, 0x96, 0xc5, 0xdd, 0x6d, 0x93, 0x7e, 0x28, 0xbf, 0x8f, 0x1f, 0xc7, 0x00, 0x4b, 0x29, 0xa4,
+	0xfd, 0xdd, 0x98, 0x99, 0x37, 0xef, 0xed, 0xbc, 0x17, 0x60, 0xbc, 0x65, 0x49, 0x42, 0xfc, 0xa5,
+	0x20, 0x7e, 0x48, 0x37, 0xe4, 0xe5, 0x9c, 0x49, 0x86, 0x46, 0x9e, 0x57, 0x7d, 0xf7, 0x9f, 0x06,
+	0x43, 0x9f, 0x73, 0xc6, 0x3f, 0x93, 0x10, 0xeb, 0x84, 0xd0, 0x82, 0x7b, 0x85, 0xb5, 0x34, 0x47,
+	0x9b, 0x0e, 0xc2, 0xba, 0x44, 0x1b, 0x8c, 0xdf, 0xfb, 0x6c, 0x23, 0x53, 0x96, 0x59, 0x7a, 0x39,
+	0x3a, 0xd5, 0x38, 0x07, 0x43, 0xd0, 0x81, 0x78, 0x2a, 0x8f, 0x56, 0xdf, 0xd1, 0xa6, 0xa3, 0xd9,
+	0x0b, 0xaf, 0xd6, 0xf0, 0xce, 0xf9, 0xbd, 0x48, 0xc1, 0xc2, 0xd3, 0x42, 0x21, 0xb9, 0xab, 0xa6,
+	0xd6, 0x4d, 0x25, 0xa9, 0x4a, 0x77, 0x0e, 0x46, 0x8d, 0xc7, 0x47, 0x70, 0xbf, 0xfa, 0x12, 0x7f,
+	0x5a, 0xae, 0x3e, 0x9a, 0x3d, 0x1c, 0xc0, 0xed, 0x87, 0x45, 0xbc, 0x08, 0x4c, 0x0d, 0x01, 0xee,
+	0x22, 0xff, 0x9b, 0x1f, 0xfa, 0xa6, 0x5e, 0x60, 0xbe, 0x2f, 0xc2, 0x55, 0x81, 0xe9, 0xbb, 0xaf,
+	0xe1, 0x69, 0x24, 0x39, 0xad, 0x77, 0xa5, 0xbe, 0x08, 0xe9, 0xcf, 0x9e, 0x84, 0x6c, 0x9d, 0xa1,
+	0xb5, 0xcf, 0x70, 0x63, 0x98, 0x54, 0x2b, 0xef, 0xa9, 0x38, 0x39, 0x60, 0x49, 0xbd, 0xf5, 0x0c,
+	0x06, 0xbf, 0xca, 0x9e, 0xff, 0x75, 0xa9, 0xd6, 0x9a, 0x46, 0x31, 0x15, 0x72, 0xcd, 0x65, 0x9c,
+	0xee, 0x48, 0x79, 0xd3, 0x34, 0xdc, 0x1f, 0x60, 0x9e, 0xf8, 0x6a, 0x9b, 0x11, 0x6e, 0xf6, 0x82,
+	0xb8, 0xa2, 0x2a, 0xbf, 0xdb, 0x1a, 0x7a, 0x57, 0xe3, 0xcc, 0xa5, 0x7e, 0xdb, 0x25, 0x07, 0x8c,
+	0x90, 0x44, 0xce, 0x32, 0x41, 0x38, 0x86, 0x5b, 0x4e, 0xf9, 0xf6, 0xa8, 0x88, 0xab, 0x62, 0xf6,
+	0x57, 0x87, 0xc7, 0x41, 0x19, 0x46, 0xa4, 0xc2, 0x7c, 0x0b, 0x46, 0xc0, 0x92, 0xd2, 0x19, 0x9c,
+	0x5c, 0x8e, 0xca, 0xc6, 0xa6, 0x5f, 0xf3, 0xbb, 0x3d, 0x7c, 0x07, 0xa3, 0x80, 0x25, 0xd5, 0x41,
+	0xfe, 0x81, 0x32, 0x89, 0x76, 0x83, 0xeb, 0xde, 0x79, 0x85, 0x63, 0x09, 0xc3, 0xf3, 0x68, 0xf0,
+	0x79, 0x83, 0xba, 0x10, 0x99, 0x7d, 0xe5, 0x81, 0x6e, 0xef, 0x95, 0x86, 0x11, 0x3c, 0xe9, 0x44,
+	0x86, 0x4e, 0x97, 0xad, 0x9b, 0xa6, 0xfd, 0xc0, 0x8b, 0x0b, 0xd2, 0x9f, 0x77, 0xe5, 0x6f, 0xf2,
+	0xe6, 0x7f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x64, 0xbc, 0x0e, 0x28, 0x3e, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -199,6 +351,9 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type LoggerServiceClient interface {
 	LogError(ctx context.Context, in *ErrorMessage, opts ...grpc.CallOption) (*Response, error)
+	LogDeviceEvent(ctx context.Context, in *DeviceLogMessage, opts ...grpc.CallOption) (*Response, error)
+	StreamErrors(ctx context.Context, in *StreamErrorsRequest, opts ...grpc.CallOption) (LoggerService_StreamErrorsClient, error)
+	StreamDeviceLog(ctx context.Context, in *StreamDeviceLogRequest, opts ...grpc.CallOption) (LoggerService_StreamDeviceLogClient, error)
 }
 
 type loggerServiceClient struct {
@@ -218,9 +373,85 @@ func (c *loggerServiceClient) LogError(ctx context.Context, in *ErrorMessage, op
 	return out, nil
 }
 
+func (c *loggerServiceClient) LogDeviceEvent(ctx context.Context, in *DeviceLogMessage, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/pplogger.LoggerService/LogDeviceEvent", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *loggerServiceClient) StreamErrors(ctx context.Context, in *StreamErrorsRequest, opts ...grpc.CallOption) (LoggerService_StreamErrorsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_LoggerService_serviceDesc.Streams[0], "/pplogger.LoggerService/StreamErrors", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &loggerServiceStreamErrorsClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type LoggerService_StreamErrorsClient interface {
+	Recv() (*ErrorMessage, error)
+	grpc.ClientStream
+}
+
+type loggerServiceStreamErrorsClient struct {
+	grpc.ClientStream
+}
+
+func (x *loggerServiceStreamErrorsClient) Recv() (*ErrorMessage, error) {
+	m := new(ErrorMessage)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *loggerServiceClient) StreamDeviceLog(ctx context.Context, in *StreamDeviceLogRequest, opts ...grpc.CallOption) (LoggerService_StreamDeviceLogClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_LoggerService_serviceDesc.Streams[1], "/pplogger.LoggerService/StreamDeviceLog", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &loggerServiceStreamDeviceLogClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type LoggerService_StreamDeviceLogClient interface {
+	Recv() (*DeviceLogMessage, error)
+	grpc.ClientStream
+}
+
+type loggerServiceStreamDeviceLogClient struct {
+	grpc.ClientStream
+}
+
+func (x *loggerServiceStreamDeviceLogClient) Recv() (*DeviceLogMessage, error) {
+	m := new(DeviceLogMessage)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // LoggerServiceServer is the server API for LoggerService service.
 type LoggerServiceServer interface {
 	LogError(context.Context, *ErrorMessage) (*Response, error)
+	LogDeviceEvent(context.Context, *DeviceLogMessage) (*Response, error)
+	StreamErrors(*StreamErrorsRequest, LoggerService_StreamErrorsServer) error
+	StreamDeviceLog(*StreamDeviceLogRequest, LoggerService_StreamDeviceLogServer) error
 }
 
 // UnimplementedLoggerServiceServer can be embedded to have forward compatible implementations.
@@ -229,6 +460,15 @@ type UnimplementedLoggerServiceServer struct {
 
 func (*UnimplementedLoggerServiceServer) LogError(ctx context.Context, req *ErrorMessage) (*Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LogError not implemented")
+}
+func (*UnimplementedLoggerServiceServer) LogDeviceEvent(ctx context.Context, req *DeviceLogMessage) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LogDeviceEvent not implemented")
+}
+func (*UnimplementedLoggerServiceServer) StreamErrors(req *StreamErrorsRequest, srv LoggerService_StreamErrorsServer) error {
+	return status.Errorf(codes.Unimplemented, "method StreamErrors not implemented")
+}
+func (*UnimplementedLoggerServiceServer) StreamDeviceLog(req *StreamDeviceLogRequest, srv LoggerService_StreamDeviceLogServer) error {
+	return status.Errorf(codes.Unimplemented, "method StreamDeviceLog not implemented")
 }
 
 func RegisterLoggerServiceServer(s *grpc.Server, srv LoggerServiceServer) {
@@ -253,6 +493,66 @@ func _LoggerService_LogError_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _LoggerService_LogDeviceEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeviceLogMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LoggerServiceServer).LogDeviceEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pplogger.LoggerService/LogDeviceEvent",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LoggerServiceServer).LogDeviceEvent(ctx, req.(*DeviceLogMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LoggerService_StreamErrors_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(StreamErrorsRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(LoggerServiceServer).StreamErrors(m, &loggerServiceStreamErrorsServer{stream})
+}
+
+type LoggerService_StreamErrorsServer interface {
+	Send(*ErrorMessage) error
+	grpc.ServerStream
+}
+
+type loggerServiceStreamErrorsServer struct {
+	grpc.ServerStream
+}
+
+func (x *loggerServiceStreamErrorsServer) Send(m *ErrorMessage) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _LoggerService_StreamDeviceLog_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(StreamDeviceLogRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(LoggerServiceServer).StreamDeviceLog(m, &loggerServiceStreamDeviceLogServer{stream})
+}
+
+type LoggerService_StreamDeviceLogServer interface {
+	Send(*DeviceLogMessage) error
+	grpc.ServerStream
+}
+
+type loggerServiceStreamDeviceLogServer struct {
+	grpc.ServerStream
+}
+
+func (x *loggerServiceStreamDeviceLogServer) Send(m *DeviceLogMessage) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _LoggerService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "pplogger.LoggerService",
 	HandlerType: (*LoggerServiceServer)(nil),
@@ -261,7 +561,22 @@ var _LoggerService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "LogError",
 			Handler:    _LoggerService_LogError_Handler,
 		},
+		{
+			MethodName: "LogDeviceEvent",
+			Handler:    _LoggerService_LogDeviceEvent_Handler,
+		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "StreamErrors",
+			Handler:       _LoggerService_StreamErrors_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "StreamDeviceLog",
+			Handler:       _LoggerService_StreamDeviceLog_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "logger-service.proto",
 }
