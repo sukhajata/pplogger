@@ -889,9 +889,8 @@ proto.pplogger.OpAlarmMessage.toObject = function(includeInstance, msg) {
   var f, obj = {
     service: jspb.Message.getFieldWithDefault(msg, 1, ""),
     deviceeui: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    timestamp: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    alarmtype: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    message: jspb.Message.getFieldWithDefault(msg, 5, "")
+    alarmtype: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    message: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -938,13 +937,9 @@ proto.pplogger.OpAlarmMessage.deserializeBinaryFromReader = function(msg, reader
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setTimestamp(value);
-      break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
       msg.setAlarmtype(value);
       break;
-    case 5:
+    case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setMessage(value);
       break;
@@ -991,24 +986,17 @@ proto.pplogger.OpAlarmMessage.serializeBinaryToWriter = function(message, writer
       f
     );
   }
-  f = message.getTimestamp();
+  f = message.getAlarmtype();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getAlarmtype();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
-      f
-    );
-  }
   f = message.getMessage();
   if (f.length > 0) {
     writer.writeString(
-      5,
+      4,
       f
     );
   }
@@ -1052,10 +1040,10 @@ proto.pplogger.OpAlarmMessage.prototype.setDeviceeui = function(value) {
 
 
 /**
- * optional string timestamp = 3;
+ * optional string alarmType = 3;
  * @return {string}
  */
-proto.pplogger.OpAlarmMessage.prototype.getTimestamp = function() {
+proto.pplogger.OpAlarmMessage.prototype.getAlarmtype = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -1064,16 +1052,16 @@ proto.pplogger.OpAlarmMessage.prototype.getTimestamp = function() {
  * @param {string} value
  * @return {!proto.pplogger.OpAlarmMessage} returns this
  */
-proto.pplogger.OpAlarmMessage.prototype.setTimestamp = function(value) {
+proto.pplogger.OpAlarmMessage.prototype.setAlarmtype = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string alarmType = 4;
+ * optional string message = 4;
  * @return {string}
  */
-proto.pplogger.OpAlarmMessage.prototype.getAlarmtype = function() {
+proto.pplogger.OpAlarmMessage.prototype.getMessage = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -1082,26 +1070,8 @@ proto.pplogger.OpAlarmMessage.prototype.getAlarmtype = function() {
  * @param {string} value
  * @return {!proto.pplogger.OpAlarmMessage} returns this
  */
-proto.pplogger.OpAlarmMessage.prototype.setAlarmtype = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
-};
-
-
-/**
- * optional string message = 5;
- * @return {string}
- */
-proto.pplogger.OpAlarmMessage.prototype.getMessage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.pplogger.OpAlarmMessage} returns this
- */
 proto.pplogger.OpAlarmMessage.prototype.setMessage = function(value) {
-  return jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 

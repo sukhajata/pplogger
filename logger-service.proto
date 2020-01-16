@@ -33,9 +33,8 @@ message DeviceLogMessage {
 message OpAlarmMessage {
     string service = 1;
     string deviceEUI = 2;
-    string timestamp = 3;
-    string alarmType = 4;
-    string message = 5;
+    string alarmType = 3;
+    string message = 4;
 }
 
 message Response {
