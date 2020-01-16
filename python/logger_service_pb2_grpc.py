@@ -24,6 +24,11 @@ class LoggerServiceStub(object):
         request_serializer=logger__service__pb2.DeviceLogMessage.SerializeToString,
         response_deserializer=logger__service__pb2.Response.FromString,
         )
+    self.LogOpAlarm = channel.unary_unary(
+        '/pplogger.LoggerService/LogOpAlarm',
+        request_serializer=logger__service__pb2.OpAlarmMessage.SerializeToString,
+        response_deserializer=logger__service__pb2.Response.FromString,
+        )
     self.StreamErrors = channel.unary_stream(
         '/pplogger.LoggerService/StreamErrors',
         request_serializer=logger__service__pb2.StreamErrorsRequest.SerializeToString,
@@ -48,6 +53,13 @@ class LoggerServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def LogDeviceEvent(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def LogOpAlarm(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -79,6 +91,11 @@ def add_LoggerServiceServicer_to_server(servicer, server):
       'LogDeviceEvent': grpc.unary_unary_rpc_method_handler(
           servicer.LogDeviceEvent,
           request_deserializer=logger__service__pb2.DeviceLogMessage.FromString,
+          response_serializer=logger__service__pb2.Response.SerializeToString,
+      ),
+      'LogOpAlarm': grpc.unary_unary_rpc_method_handler(
+          servicer.LogOpAlarm,
+          request_deserializer=logger__service__pb2.OpAlarmMessage.FromString,
           response_serializer=logger__service__pb2.Response.SerializeToString,
       ),
       'StreamErrors': grpc.unary_stream_rpc_method_handler(

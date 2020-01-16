@@ -229,6 +229,86 @@ proto.pplogger.LoggerServicePromiseClient.prototype.logDeviceEvent =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.pplogger.OpAlarmMessage,
+ *   !proto.pplogger.Response>}
+ */
+const methodDescriptor_LoggerService_LogOpAlarm = new grpc.web.MethodDescriptor(
+  '/pplogger.LoggerService/LogOpAlarm',
+  grpc.web.MethodType.UNARY,
+  proto.pplogger.OpAlarmMessage,
+  proto.pplogger.Response,
+  /**
+   * @param {!proto.pplogger.OpAlarmMessage} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.pplogger.Response.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.pplogger.OpAlarmMessage,
+ *   !proto.pplogger.Response>}
+ */
+const methodInfo_LoggerService_LogOpAlarm = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.pplogger.Response,
+  /**
+   * @param {!proto.pplogger.OpAlarmMessage} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.pplogger.Response.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.pplogger.OpAlarmMessage} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.pplogger.Response)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.pplogger.Response>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.pplogger.LoggerServiceClient.prototype.logOpAlarm =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/pplogger.LoggerService/LogOpAlarm',
+      request,
+      metadata || {},
+      methodDescriptor_LoggerService_LogOpAlarm,
+      callback);
+};
+
+
+/**
+ * @param {!proto.pplogger.OpAlarmMessage} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.pplogger.Response>}
+ *     A native promise that resolves to the response
+ */
+proto.pplogger.LoggerServicePromiseClient.prototype.logOpAlarm =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/pplogger.LoggerService/LogOpAlarm',
+      request,
+      metadata || {},
+      methodDescriptor_LoggerService_LogOpAlarm);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.pplogger.StreamErrorsRequest,
  *   !proto.pplogger.ErrorMessage>}
  */

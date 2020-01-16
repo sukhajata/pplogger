@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pplogger',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x14logger-service.proto\x12\x08pplogger\"\xb2\x01\n\x0c\x45rrorMessage\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\x12\x31\n\x08severity\x18\x03 \x01(\x0e\x32\x1f.pplogger.ErrorMessage.Severity\x12\x0f\n\x07message\x18\x04 \x01(\t\";\n\x08Severity\x12\x0b\n\x07NOTHING\x10\x00\x12\t\n\x05\x46\x41TAL\x10\x01\x12\n\n\x06SEVERE\x10\x02\x12\x0b\n\x07WARNING\x10\x03\"\'\n\x13StreamErrorsRequest\x12\x10\n\x08\x66unction\x18\x01 \x01(\t\">\n\x16StreamDeviceLogRequest\x12\x11\n\tdeviceEUI\x18\x01 \x01(\t\x12\x11\n\tstartTime\x18\x02 \x01(\t\"D\n\x10\x44\x65viceLogMessage\x12\x0c\n\x04user\x18\x01 \x01(\t\x12\x11\n\tdeviceEUI\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"\x19\n\x08Response\x12\r\n\x05reply\x18\x01 \x01(\t2\xad\x02\n\rLoggerService\x12\x38\n\x08LogError\x12\x16.pplogger.ErrorMessage\x1a\x12.pplogger.Response\"\x00\x12\x42\n\x0eLogDeviceEvent\x12\x1a.pplogger.DeviceLogMessage\x1a\x12.pplogger.Response\"\x00\x12I\n\x0cStreamErrors\x12\x1d.pplogger.StreamErrorsRequest\x1a\x16.pplogger.ErrorMessage\"\x00\x30\x01\x12S\n\x0fStreamDeviceLog\x12 .pplogger.StreamDeviceLogRequest\x1a\x1a.pplogger.DeviceLogMessage\"\x00\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x14logger-service.proto\x12\x08pplogger\"\xb2\x01\n\x0c\x45rrorMessage\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\x12\x31\n\x08severity\x18\x03 \x01(\x0e\x32\x1f.pplogger.ErrorMessage.Severity\x12\x0f\n\x07message\x18\x04 \x01(\t\";\n\x08Severity\x12\x0b\n\x07NOTHING\x10\x00\x12\t\n\x05\x46\x41TAL\x10\x01\x12\n\n\x06SEVERE\x10\x02\x12\x0b\n\x07WARNING\x10\x03\"\'\n\x13StreamErrorsRequest\x12\x10\n\x08\x66unction\x18\x01 \x01(\t\">\n\x16StreamDeviceLogRequest\x12\x11\n\tdeviceEUI\x18\x01 \x01(\t\x12\x11\n\tstartTime\x18\x02 \x01(\t\"D\n\x10\x44\x65viceLogMessage\x12\x0c\n\x04user\x18\x01 \x01(\t\x12\x11\n\tdeviceEUI\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"k\n\x0eOpAlarmMessage\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x11\n\tdeviceEUI\x18\x02 \x01(\t\x12\x11\n\ttimestamp\x18\x03 \x01(\t\x12\x11\n\talarmType\x18\x04 \x01(\t\x12\x0f\n\x07message\x18\x05 \x01(\t\"\x19\n\x08Response\x12\r\n\x05reply\x18\x01 \x01(\t2\xeb\x02\n\rLoggerService\x12\x38\n\x08LogError\x12\x16.pplogger.ErrorMessage\x1a\x12.pplogger.Response\"\x00\x12\x42\n\x0eLogDeviceEvent\x12\x1a.pplogger.DeviceLogMessage\x1a\x12.pplogger.Response\"\x00\x12<\n\nLogOpAlarm\x12\x18.pplogger.OpAlarmMessage\x1a\x12.pplogger.Response\"\x00\x12I\n\x0cStreamErrors\x12\x1d.pplogger.StreamErrorsRequest\x1a\x16.pplogger.ErrorMessage\"\x00\x30\x01\x12S\n\x0fStreamDeviceLog\x12 .pplogger.StreamDeviceLogRequest\x1a\x1a.pplogger.DeviceLogMessage\"\x00\x30\x01\x62\x06proto3')
 )
 
 
@@ -223,6 +223,65 @@ _DEVICELOGMESSAGE = _descriptor.Descriptor(
 )
 
 
+_OPALARMMESSAGE = _descriptor.Descriptor(
+  name='OpAlarmMessage',
+  full_name='pplogger.OpAlarmMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='service', full_name='pplogger.OpAlarmMessage.service', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='deviceEUI', full_name='pplogger.OpAlarmMessage.deviceEUI', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='pplogger.OpAlarmMessage.timestamp', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='alarmType', full_name='pplogger.OpAlarmMessage.alarmType', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='pplogger.OpAlarmMessage.message', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=390,
+  serialized_end=497,
+)
+
+
 _RESPONSE = _descriptor.Descriptor(
   name='Response',
   full_name='pplogger.Response',
@@ -249,8 +308,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=390,
-  serialized_end=415,
+  serialized_start=499,
+  serialized_end=524,
 )
 
 _ERRORMESSAGE.fields_by_name['severity'].enum_type = _ERRORMESSAGE_SEVERITY
@@ -259,6 +318,7 @@ DESCRIPTOR.message_types_by_name['ErrorMessage'] = _ERRORMESSAGE
 DESCRIPTOR.message_types_by_name['StreamErrorsRequest'] = _STREAMERRORSREQUEST
 DESCRIPTOR.message_types_by_name['StreamDeviceLogRequest'] = _STREAMDEVICELOGREQUEST
 DESCRIPTOR.message_types_by_name['DeviceLogMessage'] = _DEVICELOGMESSAGE
+DESCRIPTOR.message_types_by_name['OpAlarmMessage'] = _OPALARMMESSAGE
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -290,6 +350,13 @@ DeviceLogMessage = _reflection.GeneratedProtocolMessageType('DeviceLogMessage', 
   })
 _sym_db.RegisterMessage(DeviceLogMessage)
 
+OpAlarmMessage = _reflection.GeneratedProtocolMessageType('OpAlarmMessage', (_message.Message,), {
+  'DESCRIPTOR' : _OPALARMMESSAGE,
+  '__module__' : 'logger_service_pb2'
+  # @@protoc_insertion_point(class_scope:pplogger.OpAlarmMessage)
+  })
+_sym_db.RegisterMessage(OpAlarmMessage)
+
 Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
   'DESCRIPTOR' : _RESPONSE,
   '__module__' : 'logger_service_pb2'
@@ -305,8 +372,8 @@ _LOGGERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=418,
-  serialized_end=719,
+  serialized_start=527,
+  serialized_end=890,
   methods=[
   _descriptor.MethodDescriptor(
     name='LogError',
@@ -327,9 +394,18 @@ _LOGGERSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
+    name='LogOpAlarm',
+    full_name='pplogger.LoggerService.LogOpAlarm',
+    index=2,
+    containing_service=None,
+    input_type=_OPALARMMESSAGE,
+    output_type=_RESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
     name='StreamErrors',
     full_name='pplogger.LoggerService.StreamErrors',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_STREAMERRORSREQUEST,
     output_type=_ERRORMESSAGE,
@@ -338,7 +414,7 @@ _LOGGERSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='StreamDeviceLog',
     full_name='pplogger.LoggerService.StreamDeviceLog',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_STREAMDEVICELOGREQUEST,
     output_type=_DEVICELOGMESSAGE,

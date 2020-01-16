@@ -30,6 +30,14 @@ message DeviceLogMessage {
     string message = 3;
 }
 
+message OpAlarmMessage {
+    string service = 1;
+    string deviceEUI = 2;
+    string timestamp = 3;
+    string alarmType = 4;
+    string message = 5;
+}
+
 message Response {
     string reply = 1;
 }
@@ -39,6 +47,8 @@ service LoggerService {
     rpc LogError(ErrorMessage) returns (Response) {}
 
     rpc LogDeviceEvent(DeviceLogMessage) returns (Response) {}
+
+    rpc LogOpAlarm(OpAlarmMessage) returns (Response) {}
 
     rpc StreamErrors(StreamErrorsRequest) returns (stream ErrorMessage) {}
 
