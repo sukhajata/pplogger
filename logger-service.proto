@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package pplogger;
 
+option go_package = "github.com/sukhajata/pplogger";
+
 message ErrorMessage {
     string service = 1;
     string function = 2;
@@ -15,6 +17,7 @@ message ErrorMessage {
     string message = 4;
 }
 
+/*
 message StreamErrorsRequest {
     string function = 1;
 }
@@ -23,6 +26,7 @@ message StreamDeviceLogRequest {
     string deviceEUI = 1;
     string startTime = 2;
 }
+*/
 
 message DeviceLogMessage {
     string user = 1;
@@ -49,7 +53,7 @@ service LoggerService {
 
     rpc LogOpAlarm(OpAlarmMessage) returns (Response) {}
 
-    rpc StreamErrors(StreamErrorsRequest) returns (stream ErrorMessage) {}
+    //rpc StreamErrors(StreamErrorsRequest) returns (stream ErrorMessage) {}
 
-    rpc StreamDeviceLog(StreamDeviceLogRequest) returns (stream DeviceLogMessage) {}
+    //rpc StreamDeviceLog(StreamDeviceLogRequest) returns (stream DeviceLogMessage) {}
 }
